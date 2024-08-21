@@ -31,6 +31,7 @@ class ExtractedText:
     self.worksheet_headers = self.rows[0]
     self.headerless_rows = self.rows[1:]
     self.chunked_text = self.chunk_text()
+    self.redacted_text = ''
 
   def chunk_text(self):
     chunked_text = ""
@@ -71,4 +72,24 @@ class ExtractedText:
         for entity in replacements:
           processed = processed.replace(entity, replacements[entity])
         redacted_text.append(processed)
+    self.redacted_text = redacted_text
     return redacted_text
+
+  def export_redacted_to_spreadsheet(self): 
+    new_spreadsheet = Workbook()
+    new_worksheet = new_spreadsheet.active 
+    new_worksheet.title = 'Redacted'
+    #add headers
+    new_worksheet.append(unredacted_text.worksheet_headers)
+    #next_row = 2
+    
+    num_columns = len(unredacted_text.worksheet_headers)
+    index = 0
+    #construct new spreadsheet with the formatting of the old one
+    for row in unredacted_text.worksheet.iter_rows(min_row=2): 
+      for cell in row: 
+        if cell.value != None:
+          new_worksheet.cell(row=cell.row, column=cell.col_idx).value = self.redacted_text[index]
+          index += 1
+
+    new_spreadsheet.save('REDACTED.xlsx')
