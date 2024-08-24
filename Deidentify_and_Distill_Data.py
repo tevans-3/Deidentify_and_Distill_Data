@@ -15,8 +15,10 @@ import ExtractedText
 from ExtractedText import ExtractedText
 import SpacyNLP
 
+import secrets
+
 import google.generativeai as genai
-genai.configure(api_key="AIzaSyBTAu05pQbGou5vt2Vww5Otkhy-AjjW5js")
+genai.configure(api_key=secrets.api_key)
 
 import argparse
 from argparse import ArgumentParser
@@ -26,7 +28,7 @@ from gooey import GooeyParser, Gooey, local_resource_path
 
 #spreadsheet_filename = 'UNREDACTED.xlsx'
 
-path_to_images = r'C:\\Users\\thoma\\Downloads\\TextSummarizing\\images'
+path_to_images = secrets.path_to_images
 
 current_model = 'Gemini 1.5'
 
@@ -34,11 +36,6 @@ def generate_redacted(spreadsheet_filename):
   unredacted_text = ExtractedText(spreadsheet_filename)
   redacted_text = unredacted_text.redact()
   return redacted_text
-
-#redacted_text = generate_redacted(spreadsheet_filename)
-#model = genai.GenerativeModel("gemini-1.5-flash")
-#response = model.generate_content(f'The following text contains evaluations of medical preceptors. It was completed anonymously by students. First, please summarize the feedback received for each preceptor. Draw out themes and highlights. At the end, provide a precise sentiment analysis of the feedback. {redacted_text}.')
-#print(response.text)
 
 #nonbuffered_stdout = os.fdopen(sys.stdout.fileno(), 'w', 0)
 #sys.stdout = nonbuffered_stdout
@@ -82,11 +79,6 @@ def main():
 
   #for text in redacted_text:
   #  print(text)
-#   event, values = sg.Window('Please review the data to make sure deidentification was successful. AI makes mistakes: you may need to manually fix them and then rerun the program. Sorry!', [[sg.Text('Select one->'), sg.Listbox(['No errors. Please proceed'], size=(20, 3), key='LB')],
-#     [sg.Button('Proceed'), sg.Button('Cancel')]]).read(close=True)
-
-# if event == 'Proceed':
-# sg.popup_cancel('User aborted'
   model = genai.GenerativeModel("gemini-1.5-flash")
   response = model.generate_content(f'{args.Prompt} {redacted_text}')#f'The following text contains evaluations of medical preceptors. It was completed anonymously by students. First, please summarize the feedback received for each preceptor. Draw out themes and highlights. At the end, provide a precise sentiment analysis of the feedback. {redacted_text}.')
   print(response.text)
