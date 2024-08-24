@@ -5,7 +5,7 @@ class SpacyNLP:
   wrapper over SpaCy's NLP engine
   """
   def __init__(self):
-    self.nlp = spacy.load("en_core_web_sm")
+    self.nlp = spacy.load(r'C:\\Users\\thoma\AppData\\Local\\Programs\\Python\\Python310\\Lib\site-packages\\en_core_web_sm\\en_core_web_sm-3.7.1')
 
   def process_doc(self, doc):
     return self.nlp(doc)
