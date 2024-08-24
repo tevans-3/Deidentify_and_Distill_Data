@@ -23,10 +23,12 @@ _Untested_
 1. When you click the executable, and after the program loads, you should see this screen (modulo your custom images): 
 <img width="960" alt="image" src="https://github.com/user-attachments/assets/dcbe0cb4-5461-474f-bbd8-0533682cd929">
 <br>
+<br>
 2. Click "Browse", then upload the .xlsx file containing the deidentified data that you want processed.
  <img width="960" alt="image" src="https://github.com/user-attachments/assets/9614fc00-912a-4926-bd4d-81b1d1c24e6c">
  <br>
-4. Enter a prompt, and then click start. Once the program finishes running, Gemini's output will be displayed, like this:
+ <br>
+3. Enter a prompt, and then click start. Once the program finishes running, Gemini's output will be displayed, like this:
  <img width="960" alt="image" src="https://github.com/user-attachments/assets/812080d0-559d-4ba0-bf87-61c721907d27">
 
 # Notes 
