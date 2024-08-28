@@ -4,9 +4,9 @@ Essentially a wrapper over spaCy's NER models and Google's Gemini API.
 
 # Windows (10 and later) 
 1. Clone this repo.
-2. Create a config file, secrets.py, in the cloned repo. Add your Google Gemini API key and the full path to your images folder.
+2. Create a config file, secrets_.py, in the cloned repo. Add your Google Gemini API key and the full path to your images folder.
 3. Follow the instructions in spaCy's docs to download to your site packages folder the specific model(s) that you want to use.
-4. Add the full path to each model to your secrets.py config file. The path should look like this: r'C:\\Users\\YOUR_NAME\AppData\\Local\\Programs\\Python\\Python310\\Lib\site-packages\\YOUR_SPACY_MODEL\\YOUR_SPACY_MODEL-VERSION
+4. Add the full path to each model to your secrets_.py config file. The path should look like this: r'C:\\Users\\YOUR_NAME\AppData\\Local\\Programs\\Python\\Python310\\Lib\site-packages\\YOUR_SPACY_MODEL\\YOUR_SPACY_MODEL-VERSION
 5. From within the main folder of the cloned repo, run pyinstaller FULL_PATH_TO_YOUR_PROGRAM.
    
 # Linux 
